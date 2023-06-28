@@ -48,10 +48,10 @@ namespace FLUX {
         float current_feedrate, current_x, current_y, current_z;
         float max_x, max_y, max_z, max_r, filament[3];
 
-        std::vector<std::pair<std::string, std::string>> *metadata;
+        std::vector<std::pair<std::string, std::string> > *metadata;
         std::vector<std::string> *previews;
 
-        FCodeV1(std::string *type, std::vector<std::pair<std::string, std::string>> *file_metadata,
+        FCodeV1(std::string *type, std::vector<std::pair<std::string, std::string> > *file_metadata,
             std::vector<std::string> *image_previews);
 
         virtual void moveto(int flags, float feedrate, float x, float y, float z, float e0, float e1, float e2);
@@ -65,7 +65,7 @@ namespace FLUX {
         bool opened;
     public:
         FCodeV1MemoryWriter(
-            std::string *type, std::vector<std::pair<std::string, std::string>> *file_metadata,
+            std::string *type, std::vector<std::pair<std::string, std::string> > *file_metadata,
             std::vector<std::string> *image_previews);
         ~FCodeV1MemoryWriter(void);
         std::string get_buffer(void);
@@ -76,7 +76,7 @@ namespace FLUX {
     class FCodeV1FileWriter : public FLUX::FCodeV1 {
     public:
         FCodeV1FileWriter(const char* filename,
-            std::string *type, std::vector<std::pair<std::string, std::string>> *file_metadata,
+            std::string *type, std::vector<std::pair<std::string, std::string> > *file_metadata,
             std::vector<std::string> *image_previews);
         ~FCodeV1FileWriter(void);
         virtual void write(const char* buf, size_t size, unsigned long *crc32);

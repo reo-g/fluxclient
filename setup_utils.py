@@ -238,12 +238,7 @@ def create_pcl_extentions():
         import traceback
         sys.stderr.write("\033[93m")
         traceback.print_exc(file=sys.stderr)
-        sys.stderr("""\033[93m
-*****************************************************************************
-* Can not find pcl libraries, `fluxclient.scanner` and `fluxclient.printer` *
-* will not work properly.                                                   *
-*****************************************************************************
-\033[0m""", file=sys.stderr)
+        sys.stderr.write("""\033[93m\033[0m""")
         return []
 
     extensions = []

@@ -79,7 +79,7 @@ void FLUX::FCodeV1Base::on_error(bool critical, const char* message, size_t leng
 }
 
 
-FLUX::FCodeV1::FCodeV1(std::string *type, std::vector<std::pair<std::string, std::string>> *file_metadata, std::vector<std::string> *image_previews) {
+FLUX::FCodeV1::FCodeV1(std::string *type, std::vector<std::pair<std::string, std::string> > *file_metadata, std::vector<std::string> *image_previews) {
     home_x = 0; home_y = 0, home_z = 240;
     current_feedrate = 0;
     current_x = 0; current_y = 0; current_z = 0;
@@ -248,7 +248,7 @@ void FLUX::FCodeV1::terminated(void) {
 
 
 FLUX::FCodeV1MemoryWriter::FCodeV1MemoryWriter(
-        std::string *type, std::vector<std::pair<std::string, std::string>> *file_metadata,
+        std::string *type, std::vector<std::pair<std::string, std::string> > *file_metadata,
         std::vector<std::string> *image_previews) : FCodeV1(type, file_metadata, image_previews) {
     stream = new std::stringstream();
     opened = true;
@@ -281,7 +281,7 @@ void FLUX::FCodeV1MemoryWriter::terminated(void) {
 
 
 FLUX::FCodeV1FileWriter::FCodeV1FileWriter(const char* filename,
-        std::string *type, std::vector<std::pair<std::string, std::string>> *file_metadata,
+        std::string *type, std::vector<std::pair<std::string, std::string> > *file_metadata,
         std::vector<std::string> *image_previews) : FCodeV1(type, file_metadata, image_previews) {
     stream = new std::ofstream(filename);
     if(stream->fail()) {

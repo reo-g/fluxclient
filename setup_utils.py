@@ -89,7 +89,7 @@ def get_install_requires():
 
 def get_packages():
     return [name
-            for _, name, ispkg in walk_packages(".")
+            for _, name, ispkg in walk_packages(["."])
             if name.startswith("fluxclient") and ispkg]
 
 
